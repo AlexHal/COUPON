@@ -15,9 +15,13 @@ remove funcds
         outpurs (new current balance, nb of transactions, avg transaction value)
     v2
         migrate v1 to coupon datastruct
+function validates if the coupon can be used for purchase
 send email for creation
 send email for use (you have x left)
-function validates if the coupon can be used for purchase
+
+
+later:
+
 validate if still active
 validate location
 ouput on a slack chanel the usages of coupons
