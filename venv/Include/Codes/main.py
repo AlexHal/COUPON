@@ -52,4 +52,10 @@ def addCoupon(code, customer_name, customer_email, location, available_balance, 
     cursor.execute(f"INSERT INTO coupons VALUES ('{code}', '{customer_name}', '{customer_email}', '{location}', {available_balance}, {isActive}, {initial_balance}, {number_of_transactions}, '{date_of_creation}', {avg_transaction}, '{validating_manager}', '{comments}')")
     updateCode(code)
 
+def searchCouponRow(code):
+    cursor.execute("SELECT * FROM coupons WHERE coupon_code = ?", (code,))
+    row = cursor.fetchone()
+    return [i for i in row]
 
+def updateCoupon(code, balance, number_of_transaction, avg_transaction):
+    cursor.execute(f"UPDATE coupons SET available_balance = {balance}, number_of_transactions = {number_of_transaction}, avg_transaction = {avg_transaction}  WHERE coupon_code = ?", (f"{code}",))
